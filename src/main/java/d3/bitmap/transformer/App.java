@@ -45,21 +45,19 @@ public class App {
         if (args[2].equals("invert")) {
             System.out.println("Inverting image colors");
             image.invert();
-        }
-
-        if (args[2].equals("horizontal")) {
+        } else if (args[2].equals("horizontal")) {
             System.out.println("Flipping image horizontally");
             image.reverseImageHorizontal();
-        }
-
-        if (args[2].equals("vertical")) {
+        } else if (args[2].equals("vertical")) {
             System.out.println("Flipping image vertically");
             image.reverseImageVertical();
-        }
-
-        if (args[2].equals("fuzzy")) {
+        } else if (args[2].equals("fuzzy")) {
             System.out.println("Fuzzifying image...kinda?");
             image.fuzzifyQuestionMark();
+        } else {
+            System.out.println("Please try again, giving the target input image, output image spot, and transform to use.");
+            System.out.println("Your transform options are: invert horizontal vertical fuzzy");
+            return;
         }
 
 
