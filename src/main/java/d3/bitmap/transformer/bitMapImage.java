@@ -60,6 +60,15 @@ public class bitMapImage {
         }
     }
 
+    public void fuzzifyQuestionMark() {
+        for (int i = 0; i < image.getWidth(); i++) {
+            for (int j = 0; j < image.getHeight(); j++) {
+                int color = image.getRGB(i, j) / 2;
+                image.setRGB(i, j, color);
+            }
+        }
+    }
+
     public void writeBitMapImage(String filePath) throws IOException {
         File targetFile = new File(filePath);
         targetFile.createNewFile();
