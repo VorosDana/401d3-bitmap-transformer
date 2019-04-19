@@ -31,7 +31,17 @@ public class App {
         System.out.println(Arrays.toString(args));
         bitMapImage returnImage = readBMPImage(args[0]);
 
-        System.out.println(Arrays.toString(returnImage.px));
+        returnImage.reverseImage();
+
+        //System.out.println(Arrays.toString(returnImage.px));
+        try {
+
+            returnImage.writeBitMapImage(args[1]);
+        } catch (IOException e) {
+            System.out.println("That system location could not be written to. Can you please give me different one?");
+            e.printStackTrace();
+        }
+
 
     }
 }
