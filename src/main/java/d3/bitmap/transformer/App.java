@@ -3,12 +3,45 @@
  */
 package d3.bitmap.transformer;
 
+import java.io.IOException;
+import java.util.Arrays;
+
 public class App {
     public String getGreeting() {
         return "Hello world.";
+
+
     }
 
+    public static bitMapImage readBMPImage(String filePath) {
+
+        bitMapImage output = null;
+        try {
+            output = new bitMapImage(filePath);
+        } catch (IOException e) {
+            System.out.println("I am so very sorry, your file could not be found. Please, fix it and try again.");
+            e.printStackTrace();
+        }
+
+        return output;
+    }
+
+
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        System.out.println(Arrays.toString(args));
+        bitMapImage returnImage = readBMPImage(args[0]);
+
+        returnImage.reverseImage();
+
+        //System.out.println(Arrays.toString(returnImage.px));
+        try {
+
+            returnImage.writeBitMapImage(args[1]);
+        } catch (IOException e) {
+            System.out.println("That system location could not be written to. Can you please give me different one?");
+            e.printStackTrace();
+        }
+
+
     }
 }
