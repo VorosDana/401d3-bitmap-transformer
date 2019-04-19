@@ -1,6 +1,7 @@
 package d3.bitmap.transformer;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -64,6 +65,15 @@ public class bitMapImage {
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < image.getHeight(); j++) {
                 int color = image.getRGB(i, j) / 2;
+                image.setRGB(i, j, color);
+            }
+        }
+    }
+
+    public void invert() {
+        for (int i = 0; i < image.getWidth(); i++) {
+            for (int j = 0; j < image.getHeight(); j++) {
+                int color = image.getRGB(i, j) ^ Color.WHITE.getRed();
                 image.setRGB(i, j, color);
             }
         }
