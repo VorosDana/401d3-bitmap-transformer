@@ -29,14 +29,40 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(Arrays.toString(args));
-        bitMapImage returnImage = readBMPImage(args[0]);
 
-        returnImage.invert();
 
-        //System.out.println(Arrays.toString(returnImage.px));
+        if (args.length != 3) {
+            System.out.println("Please try again, giving the target input image, output image spot, and transform to use.");
+            System.out.println("Your transform options are: invert horizontal vertical fuzzy");
+            return;
+        }
+
+        System.out.println(args[2]);
+
+
+        bitMapImage image = readBMPImage(args[0]);
+
+        if (args[2].equals("invert")) {
+            System.out.println("Inverting image colors");
+            image.invert();
+        } else if (args[2].equals("horizontal")) {
+            System.out.println("Flipping image horizontally");
+            image.reverseImageHorizontal();
+        } else if (args[2].equals("vertical")) {
+            System.out.println("Flipping image vertically");
+            image.reverseImageVertical();
+        } else if (args[2].equals("fuzzy")) {
+            System.out.println("Fuzzifying image...kinda?");
+            image.fuzzifyQuestionMark();
+        } else {
+            System.out.println("Please try again, giving the target input image, output image spot, and transform to use.");
+            System.out.println("Your transform options are: invert horizontal vertical fuzzy");
+            return;
+        }
+
+
         try {
-
-            returnImage.writeBitMapImage(args[1]);
+            image.writeBitMapImage(args[1]);
         } catch (IOException e) {
             System.out.println("That system location could not be written to. Can you please give me different one?");
             e.printStackTrace();
