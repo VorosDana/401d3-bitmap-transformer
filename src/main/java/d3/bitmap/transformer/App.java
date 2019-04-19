@@ -31,7 +31,7 @@ public class App {
         System.out.println(Arrays.toString(args));
         bitMapImage returnImage = readBMPImage(args[0]);
 
-        returnImage.reverseImageHorizontal();
+        returnImage.darken();
 
         //System.out.println(Arrays.toString(returnImage.px));
         try {
