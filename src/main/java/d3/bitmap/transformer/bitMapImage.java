@@ -20,7 +20,7 @@ public class bitMapImage {
         }
     }
 
-    public void reverseImage() {
+    public void reverseImageVertical() {
 
         for (int i = 0; i < image.getWidth(); i++) {
             for (int j = 0; j < (image.getHeight() / 2); j++) {
@@ -28,6 +28,26 @@ public class bitMapImage {
                 px[i][j] ^= px[i][px[i].length - 1 - j];
                 px[i][px[i].length - 1 - j] ^= px[i][j];
                 px[i][j] ^= px[i][px[i].length - 1 - j];
+
+            }
+        }
+
+        for (int k = 0; k < image.getWidth(); k++) {
+            for (int l = 0; l < image.getHeight(); l++) {
+
+                image.setRGB(k, l, px[k][l]);
+            }
+        }
+    }
+
+    public void reverseImageHorizontal() {
+
+        for (int i = 0; i < image.getHeight(); i++) {
+            for (int j = 0; j < (image.getWidth() / 2); j++) {
+
+                px[j][i] ^= px[image.getWidth() - 1 - j][i];
+                px[image.getWidth() - 1 - j][i] ^= px[j][i];
+                px[j][i] ^= px[image.getWidth() - 1 - j][i];
 
             }
         }
