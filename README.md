@@ -28,5 +28,30 @@ This method makes use of Java's bitwise operators to reverse the image at a base
   ![inverted Tiger](https://github.com/VorosDana/401d3-bitmap-transformer/blob/master/assets/tests/Invert_Tigger.bmp) 
   This method uses bitwise inversion to convert the colors from what you expect, to what you really really dont. 
   
-  Why would you do any of this to a tiger? 
+## Command Line 
+
+    
+ ### Command line prompts are as follows.
+ 
+  
+    ./gradlew run --args ./assets/tiger.bmp\ ./assets/tiggershift.bmp\fuzzy
+    
+    ./gradlew run --args ./assets/tiger.bmp\ ./assets/tiggershift.bmp\vertical
+    
+    ./gradlew run --args ./assets/tiger.bmp\ ./assets/tiggershift.bmp\horizontal
+        
+    ./gradlew run --args ./assets/tiger.bmp\ ./assets/tiggershift.bmp\invert
+    
+    
+ ### Error Message Print Lines
+ 
+ 
+  System.out.println("Please try again, giving the target input image, output image spot, and transform to use.");
+  
+  System.out.println("Your transform options are: invert horizontal vertical fuzzy");
+  
+    
+### Why would you do any of this to a tiger? 
+
+
   ![accusatory tiger](https://media.giphy.com/media/RK4elGDTVhTmhtCknc/giphy.gif)
